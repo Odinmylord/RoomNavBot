@@ -1,0 +1,86 @@
+{
+    "A101": {
+        "orientation": "N",
+        "edges":[["CrossNW", 1, "S"]]
+    },
+    "A102": {
+        "orientation": "N",
+        "edges":[["CorridorN1", 1, "S"]]
+    },
+    "A103": {
+        "orientation": "S",
+        "edges": [["CrossSE", 1, "N"]]
+    },
+    "A104": {
+        "orientation": "S",
+        "edges": [["CorridorS1", 1, "N"]]
+    },
+    "A105": {
+        "orientation": "S",
+        "edges": [["CorridorS2", 1, "N"]]
+    },
+    "A106": {
+        "orientation": "S",
+        "edges": [["CrossSW", 1, "N"]]
+    },
+    "A107": {
+        "orientation": "N",
+        "edges": [["CorridorS2", 1, "S"]]
+    },
+    "A108": {
+        "orientation": "S",
+        "edges": [["CorridorN1", 1, "S"]]
+    },
+    "A109": {
+        "orientation": "W",
+        "edges": [["CorridorW2", 1, "E"]]
+    },
+    "A110": {
+        "orientation": "W",
+        "edges": [["CorridorW1", 1, "E"]]
+    },
+    "Entrance": {
+        "orientation": "W",
+        "edges": [["CrossSE", 1, "S"], ["CrossNE", 1, "N"]]
+    },
+    "CrossSE": {
+        "orientation": "S",
+        "edges": [["A103", 1, "S"], ["Entrance", 1, "N"]]
+    },
+    "CrossSW": {
+        "orientation": "",
+        "edges": [["CorridorS2", 1, "E"], ["A106", 1, "S"]]
+    },       
+    "CrossNE": {
+        "orientation": "",
+        "edges": [["Entrance", 1, "S"]]
+    },
+    "CrossNW": {
+        "orientation": "",
+        "edges": [["A101", 1, "N"], ["CorridorN1", 1, "E"], ["CorridorW1", 1, "S"]]
+    },
+    "Acquario": {
+        "orientation": "",
+        "edges": [["A109", 1, "W"], ["A110", 1, "W"]]
+    },
+    "CorridorN1": {
+        "orientation": "",
+        "edges": [["CrossNW", 1, "W"], ["CrossNE", 1, "E"], ["A102", 1, "N"], ["A108", 1, "S"]]
+    },
+    "CorridorW1": {
+        "orientation": "",
+        "edges": [["CorridorW2", 1, "S"], ["CrossNW", 1, "N"], ["A110", 1, "W"]]
+    },
+    "CorridorW2": {
+        "orientation": "",
+        "edges": [["CorridorW1", 1, "N"], ["CrossSW", 1, "S"], ["A109", 1, "W"]]
+    },
+    "CorridorS1": {
+        "orientation": "",
+        "edges": [["CorridorS2", 1, "W"], ["CrossSE", 1, "E"], ["A104", 1, "S"]]
+    },
+    "CorridorS2": {
+        "orientation": "",
+        "edges": [["CorridorS1", 1, "E"], ["CrossSW", 1, "W"], ["A105", 1, "S"], ["A107", 1, "N"]]
+    }
+}
