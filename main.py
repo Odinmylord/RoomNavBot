@@ -344,4 +344,10 @@ def print_query(_, query):
     print(query.data)
 
 
+@app.on_message(pyrogram.filters.command("start") & pyrogram.filters.private)
+def start(_, message):
+    message.reply_text("This bot will help you find rooms inside Povo.\nUse the /nav command to start navigating")
+    return True
+
+
 app.run()
