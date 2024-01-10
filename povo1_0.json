@@ -1,13 +1,13 @@
 {
     "A101": {
         "orientation": "N",
-        "edges":[["CrossNW", 1, "S"]],
+        "edges":[["CorridorN3", 1, "S"]],
         "coords": [697, 195]
     },
     "A102": {
         "orientation": "N",
         "edges":[["CorridorN1", 1, "S"]],
-        "coords": [697, 245]
+        "coords": [697, 310]
     },
     "A103": {
         "orientation": "S",
@@ -37,7 +37,7 @@
     "A108": {
         "orientation": "S",
         "edges": [["CorridorN1", 1, "S"]],
-        "coords": [620, 220]
+        "coords": [620, 275]
     },
     "A109": {
         "orientation": "W",
@@ -71,7 +71,7 @@
     },
     "CrossNW": {
         "orientation": "",
-        "edges": [["A101", 1, "N"], ["CorridorN1", 1, "E"], ["CorridorW1", 1, "S"]],
+        "edges": [["A101", 1, "N"], ["CorridorN3", 1, "E"], ["CorridorW1", 1, "S"]],
         "coords": [651, 162]
     },
     "Acquario": {
@@ -80,8 +80,18 @@
     },
     "CorridorN1": {
         "orientation": "",
-        "edges": [["CrossNW", 1, "W"], ["CrossNE", 1, "E"], ["A102", 1, "N"], ["A108", 1, "S"]],
-        "coords": [651, 245]
+        "edges": [["CorridorN2", 1, "W"], ["CrossNE", 1, "E"], ["A102", 1, "N"]],
+        "coords": [651, 310]
+    },
+    "CorridorN2":{
+        "orientation": "",
+        "edges": [["CorridorN1", 1, "S"], ["CorridorN3", 1, "N"], ["A108", 1, "S"]],
+        "coords": [651, 275]
+    },
+    "CorridorN3":{
+        "orientation": "",
+        "edges": [["CorridorN2", 1, "S"], ["CrossNW", 1, "N"], ["A101", 1, "N"]],
+        "coords": [651, 195]
     },
     "CorridorW1": {
         "orientation": "",
