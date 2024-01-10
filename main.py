@@ -3,6 +3,9 @@ import pyrogram
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 import configparser
+import os
+from PIL import Image, ImageDraw
+import io
 
 cardinal_dict = {"N": 0, "E": 1, "S": 2, "W": 3}
 degrees_to_human = {0: "front", 90: "right", 180: "back", 270: "left"}
@@ -32,12 +35,14 @@ class Graph:
             data = json.load(f)
         for name in data:
             orientation = data[name]["orientation"]
+            coords = data[name].get("coords")
             if not orientation:
                 orientation = None
-            self.add_node(Node(name, orientation))
+            self.add_node(Node(name, orientation, coords))
         for name in data:
             for edge in data[name]["edges"]:
                 self.add_edge(name, Edge(self.get_by_name(edge[0]), edge[1], edge[2]))
+        self.floor = floor
 
     def add_node(self, node):
         self.nodes.append(node)
@@ -96,9 +101,10 @@ class Graph:
 
 
 class Node:
-    def __init__(self, name, orientation):
+    def __init__(self, name, orientation, coords):
         self.name = name
         self.orientation = orientation
+        self.coords = coords
         self.edges = []
 
     def get_direction_to(self, destination):
@@ -123,9 +129,48 @@ def direction_converter(direction, new_direction):
     ]
 
 
+def prepare_image(graph, path):
+    if os.path.isfile("images/" + graph.floor.replace("json", "png")):
+        with open("images/povo1_0.png", "rb") as f:
+            img = Image.open(f)
+            draw = ImageDraw.Draw(img)
+        # Draw a circle in the first point
+        draw.ellipse(
+            (
+                path[0].coords[0] - 5,
+                path[0].coords[1] - 5,
+                path[0].coords[0] + 5,
+                path[0].coords[1] + 5,
+            ),
+            fill="red",
+        )
+        for i in range(len(path) - 1):
+            draw.line(
+                path[i].coords + path[i + 1].coords,
+                fill="red",
+                width=5,
+            )
+        # draw a triangle in the last point
+        draw.polygon(
+            (
+                path[-1].coords[0],
+                path[-1].coords[1] - 5,
+                path[-1].coords[0] - 5,
+                path[-1].coords[1] + 5,
+                path[-1].coords[0] + 5,
+                path[-1].coords[1] + 5,
+            ),
+            fill="red",
+        )
+        image = io.BytesIO()
+        img.save(image, format="PNG")
+        image.name = "image.png"
+        return image
+
+
 def pathfinder(graph: Graph, room1, room2):
     path = graph.dijkstra(graph.get_by_name(room1), graph.get_by_name(room2))
-    print([node.name for node in path])
+    image = prepare_image(graph, path)
     steps = []
     path_dir = []
     # add direction to the nodes
@@ -183,7 +228,7 @@ def pathfinder(graph: Graph, room1, room2):
             )
 
         counter += 1
-    return output_string
+    return output_string, image
 
 
 parser = configparser.ConfigParser()
@@ -255,8 +300,11 @@ def first_room_callback(client, callback_query: pyrogram.types.CallbackQuery):
     print(floor, room)
     keyboard = []
     for node in graphs[floor].nodes:
-        if node.name.startswith("Corridor") or node.name.startswith("Cross") or \
-            node.name == room:
+        if (
+            node.name.startswith("Corridor")
+            or node.name.startswith("Cross")
+            or node.name == room
+        ):
             continue
         keyboard.append(
             [
@@ -266,7 +314,9 @@ def first_room_callback(client, callback_query: pyrogram.types.CallbackQuery):
             ]
         )
     keyboard = InlineKeyboardMarkup(keyboard)
-    callback_query.edit_message_text(f"Starting point: {room}.\nChoose destination room", reply_markup=keyboard)
+    callback_query.edit_message_text(
+        f"Starting point: {room}.\nChoose destination room", reply_markup=keyboard
+    )
     return True
 
 
@@ -284,8 +334,8 @@ second_room_filter = pyrogram.filters.create(double_room_filter)
 @app.on_callback_query(second_room_filter)
 def second_room_callback(client, callback_query):
     floor, room1, room2 = callback_query.data.split("$")
-    path = pathfinder(graphs[floor], room1, room2)
-    callback_query.message.reply_text(path)
+    path, image = pathfinder(graphs[floor], room1, room2)
+    callback_query.message.reply_photo(image, caption=path)
     return True
 
 
