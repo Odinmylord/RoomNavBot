@@ -74,9 +74,10 @@
         "edges": [["A101", 1, "N"], ["CorridorN3", 1, "E"], ["CorridorW1", 1, "S"]],
         "coords": [651, 162]
     },
-    "Acquario": {
+    "Study Room": {
         "orientation": "",
-        "edges": [["CorrdiorW3", 1, "W"]]
+        "edges": [["CorrdiorW3", 1, "W"]],
+        "coords": [380, 230]
     },
     "CorridorN1": {
         "orientation": "",
@@ -105,7 +106,7 @@
     },
     "CorridorW3": {
         "orientation": "",
-        "edges": [["CorridorW2", 1, "N"], ["CrossSW", 1, "S"], ["Acquario", 1, "E"]],
+        "edges": [["CorridorW2", 1, "N"], ["CrossSW", 1, "S"], ["Study Room", 1, "E"]],
         "coords": [380, 162]
     },
     "CorridorS1": {
