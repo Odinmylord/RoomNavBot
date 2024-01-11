@@ -130,8 +130,9 @@ def direction_converter(direction, new_direction):
 
 
 def prepare_image(graph, path):
-    if os.path.isfile("images/" + graph.floor.replace("json", "png")):
-        with open("images/povo1_0.png", "rb") as f:
+    file = "images/" + graph.floor.replace("json", "png")
+    if os.path.isfile(file):
+        with open(file, "rb") as f:
             img = Image.open(f)
             draw = ImageDraw.Draw(img)
         # Draw a circle in the first point

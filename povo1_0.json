@@ -31,7 +31,7 @@
     },
     "A107": {
         "orientation": "N",
-        "edges": [["CorridorS2", 1, "S"]],
+        "edges": [["CorridorS1", 1, "S"]],
         "coords": [310, 275]
     },
     "A108": {
@@ -56,27 +56,27 @@
     },
     "CrossSE": {
         "orientation": "S",
-        "edges": [["A103", 1, "S"], ["Entrance", 1, "N"]],
+        "edges": [["A103", 1, "S"], ["Entrance", 1, "N"], ["CorridorS1", 1, "W"]],
         "coords": [275, 362]
     },
     "CrossSW": {
         "orientation": "",
-        "edges": [["CorridorS2", 1, "E"], ["A106", 1, "S"]],
+        "edges": [["CorridorS2", 1, "E"], ["A106", 1, "S"], ["CorridorW3", 1, "N"]],
         "coords": [275, 162]
     },       
     "CrossNE": {
         "orientation": "",
-        "edges": [["Entrance", 1, "S"]],
+        "edges": [["Entrance", 1, "S"], ["CorridorN1", 1, "W"]],
         "coords": [651, 362]
     },
     "CrossNW": {
         "orientation": "",
-        "edges": [["A101", 1, "N"], ["CorridorN3", 1, "E"], ["CorridorW1", 1, "S"]],
+        "edges": [["CorridorN3", 1, "E"], ["CorridorW1", 1, "S"]],
         "coords": [651, 162]
     },
     "Study Room": {
         "orientation": "",
-        "edges": [["CorrdiorW3", 1, "W"]],
+        "edges": [["CorridorW3", 1, "W"]],
         "coords": [380, 230]
     },
     "CorridorN1": {
