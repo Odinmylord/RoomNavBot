@@ -151,7 +151,7 @@
     },
     "CorridorN2": {
         "orientation": "",
-        "edges": [["A201", 1, "N"], ["CrossNE", 1, "W"], "CorridorN1", 1, "W"],
+        "edges": [["A201", 1, "N"], ["CrossNE", 1, "W"], ["CorridorN1", 1, "W"]],
         "coords": [675, 255]
     },
     "CorridorN3": {
