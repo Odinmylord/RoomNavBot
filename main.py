@@ -164,7 +164,6 @@ def prepare_image(graph, path):
             )
         else:
             multiplier = 1 if path[-1].orientation == "N" else -1
-            print(multiplier, path[-1].coords)
             draw.polygon(
                 (
                     path[-1].coords[0] + (5*multiplier), path[-1].coords[1],

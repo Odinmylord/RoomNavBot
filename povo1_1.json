@@ -126,102 +126,102 @@
     },
     "CrossSE": {
         "orientation": "S",
-        "edges": [["A205", 1, "S"], ["CorridorS2", 1, "W"], ["CorridorS1", 1, "E"], ["CorridorE4", 1, "N"]],
+        "edges": [["A205", 1, "S"], ["CorridorS2", 140, "W"], ["CorridorS1", 20, "E"], ["CorridorE5", 130, "N"]],
         "coords": [270, 395]
     },
     "CrossSW": {
         "orientation": "",
-        "edges": [["CorridorS3", 1, "E"], ["CorridorS4", 1, "W"], ["A207", 1, "S"], ["CorridorW1", 1, "N"]],
+        "edges": [["CorridorS3", 20, "E"], ["CorridorS2", 80, "W"], ["A207", 1, "S"], ["CorridorW1", 85, "N"]],
         "coords": [270, 175]
     },       
     "CrossNE": {
         "orientation": "",
-        "edges": [["A202", 1, "N"], ["CorridorN2", 1, "E"], ["CorridorN1", 1, "W"], ["CorridorE1", 1, "S"]],
+        "edges": [["A202", 1, "N"], ["CorridorN3", 20, "E"], ["CorridorN2", 140, "W"], ["CorridorE1", 87, "S"]],
         "coords": [675, 395]
     },
     "CrossNW": {
         "orientation": "",
-        "edges": [["Lab", 1, "N"], ["CorridorN1", 1, "E"], ["CorridorW4", 1, "S"]],
+        "edges": [["Lab", 1, "N"], ["CorridorN1", 55, "E"], ["CorridorW5", 130, "S"]],
         "coords": [675, 175]
     },
     "CorridorN1": {
         "orientation": "",
-        "edges": [["CrossNW", 1, "W"], ["CorridorN2", 1, "E"], ["Lab", 1, "N"]],
+        "edges": [["CrossNW", 55, "W"], ["CorridorN2", 25, "E"], ["Lab", 1, "N"]],
         "coords": [675, 230]
     },
     "CorridorN2": {
         "orientation": "",
-        "edges": [["A201", 1, "N"], ["CrossNE", 1, "W"], ["CorridorN1", 1, "W"]],
+        "edges": [["A201", 1, "N"], ["CrossNE", 140, "W"], ["CorridorN1", 25, "W"]],
         "coords": [675, 255]
     },
     "CorridorN3": {
         "orientation": "",
-        "edges": [["A203", 1, "N"], ["CrossNE", 1, "W"]],
+        "edges": [["A203", 1, "N"], ["CrossNE", 20, "W"]],
         "coords": [675, 415]
     },
     "CorridorE1":{
         "orientation": "",
-        "edges": [["CrossNE", 1, "N"], ["A209", 1, "E"], ["A216", 1, "W"], ["CorridorE2", 1, "S"]],
+        "edges": [["CrossNE", 87, "N"], ["A209", 1, "E"], ["A216", 1, "W"], ["CorridorE2", 63, "S"]],
         "coords": [588, 395]
     },
     "CorridorE2":{
         "orientation": "",
-        "edges": [["A210", 1, "E"], ["A215", 1, "W"], ["CorridorE1", 1, "N"], ["CorridorE3", 1, "S"]],
+        "edges": [["A210", 1, "E"], ["A215", 1, "W"], ["CorridorE1", 63, "N"], ["CorridorE3", 60, "S"]],
         "coords": [525, 395]
     },
     "CorridorE3":{
         "orientation": "",
-        "edges": [["A214", 1, "W"], ["CorridorE2", 1, "N"], ["CorridorE4", 1, "S"]],
+        "edges": [["A214", 1, "W"], ["CorridorE2", 60, "N"], ["CorridorE4", 20, "S"]],
         "coords": [465, 395]
     },
     "CorridorE4":{
         "orientation": "",
-        "edges": [["A211", 1, "E"], ["CorridorE3", 1, "N"], ["CorridorE5", 1, "S"]],
+        "edges": [["A211", 1, "E"], ["CorridorE3", 20, "N"], ["CorridorE5", 45, "S"]],
         "coords": [445, 395]
     },
     "CorridorE5":{
         "orientation": "",
-        "edges": [["A212", 1, "E"], ["A213", 1, "W"], ["CorridorE3", 1, "N"], ["CrossSE", 1, "S"]],
+        "edges": [["A212", 1, "E"], ["A213", 1, "W"], ["CorridorE4", 45, "N"], ["CrossSE", 130, "S"]],
         "coords": [400, 395]
     },
     "CorridorS1":{
         "orientation": "",
-        "edges": [["A204", 1, "S"], ["CrossSE", 1, "W"]],
+        "edges": [["A204", 1, "S"], ["CrossSE", 20, "W"]],
         "coords": [270, 415]
     },
     "CorridorS2":{
         "orientation": "",
-        "edges": [["A206", 1, "S"], ["CrossSE", 1, "E"], ["CrossSW", 1, "W"]],
+        "edges": [["A206", 1, "S"], ["CrossSE", 140, "E"], ["CrossSW", 80, "W"]],
         "coords": [270, 255]
     },
     "CorridorS3":{
         "orientation": "",
-        "edges": [["CrossSW", 1, "E"], ["A208", 1, "N"]],
+        "edges": [["CrossSW", 20, "E"], ["A208", 1, "N"]],
         "coords": [270, 155]
     },
     "CorridorW1":{
         "orientation": "",
-        "edges": [["CrossSW", 1, "S"], ["A220", 1, "E"], ["A221", 1, "W"], ["CorridorW2", 1, "N"]],
+        "edges": [["CrossSW", 85, "S"], ["A220", 1, "E"], ["A221", 1, "W"], ["CorridorW2", 63, "N"]],
         "coords": [355, 175]
     },
     "CorridorW2":{
         "orientation": "",
-        "edges": [["A219", 1, "E"], ["A222", 1, "W"], ["CorridorW1", 1, "S"], ["CorridorW3", 1, "N"]],
+        "edges": [["A219", 1, "E"], ["A222", 1, "W"], ["CorridorW1", 63, "S"], ["CorridorW3", 62, "N"]],
         "coords": [418, 175]
     },
     "CorridorW3":{
         "orientation": "",
-        "edges": [["A218", 1, "E"], ["CorridorW2", 1, "S"], ["CorridorW4", 1, "N"]],
+        "edges": [["A218", 1, "E"], ["CorridorW2", 62, "S"], ["CorridorW4", 20, "N"]],
         "coords": [480, 175]
     },
     "CorridorW4":{
         "orientation": "",
-        "edges": [["A223", 1, "E"], ["CorridorW3", 1, "S"], ["CorridorW5", 1, "N"]],
+        "edges": [["A223", 1, "E"], ["CorridorW3", 20, "S"], ["CorridorW5", 45, "N"]],
         "coords": [500, 175]
     },
     "CorridorW5":{
         "orientation": "",
-        "edges": [["A217", 1, "E"], ["A224", 1, "W"], ["CorridorW3", 1, "S"], ["CrossNW", 1, "N"]],
+        "edges": [["A217", 1, "E"], ["A224", 1, "W"], ["CorridorW4", 45, "S"], ["CrossNW", 130, "N"]],
         "coords": [545, 175]
     }
 }
