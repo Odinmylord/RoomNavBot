@@ -152,17 +152,27 @@ def prepare_image(graph, path):
                 width=5,
             )
         # draw a triangle in the last point
-        draw.polygon(
-            (
-                path[-1].coords[0],
-                path[-1].coords[1] - 5,
-                path[-1].coords[0] - 5,
-                path[-1].coords[1] + 5,
-                path[-1].coords[0] + 5,
-                path[-1].coords[1] + 5,
-            ),
-            fill="red",
-        )
+        if path[-1].orientation in ["W", "E"]:
+            multiplier = 1 if path[-1].orientation == "E" else -1
+            draw.polygon(
+                (
+                    path[-1].coords[0], path[-1].coords[1] + (5*multiplier),
+                    path[-1].coords[0] - 5, path[-1].coords[1],
+                    path[-1].coords[0] + 5, path[-1].coords[1],
+                ),
+                fill="red",
+            )
+        else:
+            multiplier = 1 if path[-1].orientation == "N" else -1
+            print(multiplier, path[-1].coords)
+            draw.polygon(
+                (
+                    path[-1].coords[0] + (5*multiplier), path[-1].coords[1],
+                    path[-1].coords[0], path[-1].coords[1] - 5,
+                    path[-1].coords[0], path[-1].coords[1] + 5,
+                ),
+                fill="red",
+            )
         image = io.BytesIO()
         img.save(image, format="PNG")
         image.name = "image.png"
