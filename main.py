@@ -3,7 +3,6 @@ from typing import List
 
 import pyrogram
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 import configparser
 import os
 from PIL import Image, ImageDraw
@@ -283,7 +282,7 @@ for _building in buildings:
 @app.on_message(pyrogram.filters.command("start") & pyrogram.filters.private)
 def start(_, message):
     print(message.text)
-    message.reply_text("Use the /nav command to start navigating")
+    message.reply_text("This bot will help you find rooms inside Povo.\nUse the /nav command to start navigating.\nThe textual directions are not accurate, rely on the images instead.")
     return True
 
 
@@ -385,17 +384,5 @@ def second_room_callback(client, callback_query):
     for image in images:
         callback_query.message.reply_photo(image, caption=path)
     return True
-
-
-@app.on_callback_query()
-def print_query(_, query):
-    print(query.data)
-
-
-@app.on_message(pyrogram.filters.command("start") & pyrogram.filters.private)
-def start(_, message):
-    message.reply_text("This bot will help you find rooms inside Povo.\nUse the /nav command to start navigating")
-    return True
-
 
 app.run()
