@@ -169,7 +169,7 @@
     },
     "A203": {
         "orientation": "N",
-        "edges": [["CorridorN2-1", 1, "S"]],
+        "edges": [["CorridorN3-1", 1, "S"]],
         "coords": [710, 415],
         "floor": "1"
     },
@@ -319,7 +319,7 @@
     },
     "CrossNW-1": {
         "orientation": "",
-        "edges": [["Lab", 1, "N"], ["CorridorN1-1", 55, "E"], ["CorridorW6-1", 75, "S"]],
+        "edges": [["CorridorN1-1", 55, "E"], ["CorridorW6-1", 75, "S"]],
         "coords": [675, 175],
         "floor": "1"
     },
