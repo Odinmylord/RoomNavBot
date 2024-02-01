@@ -421,7 +421,7 @@
     },
     "CorridorW6-1": {
         "orientation": "",
-        "edges": [["CorridorW5-1", 65, "S"], ["CrossNW-1", 75, "N"]],
+        "edges": [["CorridorW5-1", 65, "S"], ["CrossNW-1", 75, "N"], ["StairNW-1", 1, "S"]],
         "coords": [610, 175],
         "floor": "1"
     },

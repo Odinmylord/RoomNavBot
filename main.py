@@ -137,8 +137,8 @@ def prepare_image(graph: Graph, path: List[Node]):
     for node in path:
         files.add("images/" + building + "_" + node.floor + ".png")
     images = {}
-    for i, file in enumerate(files):
-        i = str(i)
+    for file in files:
+        i = file.split("_")[1].split(".")[0]
         if os.path.isfile(file):
             with open(file, "rb") as f:
                 img = Image.open(f)
@@ -147,7 +147,6 @@ def prepare_image(graph: Graph, path: List[Node]):
             images[i+"_img"] = img
         else:
             images[i] = None
-    print(images)
     # Draw a circle in the first point
     first_node_floor = path[0].floor
     images[first_node_floor].ellipse(
@@ -281,7 +280,6 @@ for _building in buildings:
 
 @app.on_message(pyrogram.filters.command("start") & pyrogram.filters.private)
 def start(_, message):
-    print(message.text)
     message.reply_text("This bot will help you find rooms inside Povo.\nUse the /nav command to start navigating.\nThe textual directions are not accurate, rely on the images instead.")
     return True
 
@@ -310,7 +308,6 @@ def floor_callback(client, callback_query):
     i = 0
     # add rooms to keyboard
     for node in graph.nodes:
-        print(floor_id, node.floor, node.name)
         if node.name.startswith("Corridor") or node.name.startswith("Cross") or node.floor != floor_id:
             continue
         if i % 2 == 0 and i != 0:
@@ -356,7 +353,6 @@ def first_room_callback(_, callback_query: pyrogram.types.CallbackQuery):
         i += 1
     if row:
         keyboard.append(row)
-    print(keyboard)
     keyboard = InlineKeyboardMarkup(keyboard)
     callback_query.edit_message_text(
         f"Starting point: {room}.\nChoose destination room", reply_markup=keyboard
